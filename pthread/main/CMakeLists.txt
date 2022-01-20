@@ -1,0 +1,1 @@
+idf_component_register(SRCS "pthreadmain.c" INCLUDE_DIRS "")
