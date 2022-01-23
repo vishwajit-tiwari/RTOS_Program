@@ -6,7 +6,7 @@
 void *helloESP32Thread(void *arg)
 {
     printf("Inside Thread Function!\n");
-    return NULL;
+    return NULL;   
 }
 
 void app_main()
