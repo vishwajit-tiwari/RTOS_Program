@@ -10,7 +10,11 @@
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64",
+<<<<<<< HEAD
             "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+=======
+            "configurationProvider": "ms-vscode.cmake-tools"
+>>>>>>> 55c1b7b690c7f77c138a314b97d49e502b7d9b9b
         }
     ],
     "version": 4

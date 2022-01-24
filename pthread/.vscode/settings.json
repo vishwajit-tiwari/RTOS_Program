@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
+=======
+    "C_Cpp.errorSquiggles": "Disabled",
+>>>>>>> 55c1b7b690c7f77c138a314b97d49e502b7d9b9b
     "idf.adapterTargetName": "esp32"
 }
