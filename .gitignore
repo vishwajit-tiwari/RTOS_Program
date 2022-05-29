@@ -5,10 +5,13 @@
 #### Ignore Directories #### 
 build
 sdkconfig
+sdkconfig.old
 
 ### C ###
 # Prerequisites
 *.d
+*.vscode
+*.json
 
 # Object files
 *.o

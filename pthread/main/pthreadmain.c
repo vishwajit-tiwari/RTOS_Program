@@ -2,16 +2,13 @@
 #include<pthread.h>
 #include<semaphore.h>
 
+
 sem_t s1, s2;   //Semaphore arguments
 
 //Function for Posix-Thread-1
 
 void *helloESP32Thread(void *arg)
 {
-<<<<<<< HEAD
-    printf("Inside Thread Function!\n");
-    return NULL;   
-=======
     while(1)
     {
         sem_wait(&s1);
@@ -19,7 +16,6 @@ void *helloESP32Thread(void *arg)
         printf("Enter two numbers: ");
         scanf("%d %d", &num1, &num2);
     }
-    return NULL;
 }
 
 //Function for Posix-Thread-1
@@ -30,8 +26,6 @@ void *hiESP32Thread(void *arg)
     {
     printf("Inside 2nd Thred...\n");
     }
-    return NULL;
->>>>>>> 55c1b7b690c7f77c138a314b97d49e502b7d9b9b
 }
 
 
