@@ -104,14 +104,16 @@ void Task4(void * parameter)
 
     for(;;) 
     {
-        retQueueSend = xQueueSend(queueHanlde, (const void *)&num, (TickType_t)10);
+        retQueueSend = xQueueSend(queueHanlde, (const void *)&num, pdMS_TO_TICKS(1000));
         if(retQueueSend == errQUEUE_FULL) {
             perror("error in QueueSend : ");
             exit(EXIT_FAILURE);
         }
         else if(retQueueSend == pdTRUE) {
-            printf("Item sent : success\n");
+            printf("Data sent : success\n");
+            printf("Task-4 sent : data : %d\n", num);
             num++;
+            vTaskDelay(pdMS_TO_TICKS(2000));
         }
     }
 
@@ -132,14 +134,15 @@ void Task5(void * parameter)
 
     for(;;) 
     {
-        retQueueReceive = xQueueReceive(queueHanlde, &num, 10);
+        retQueueReceive = xQueueReceive(queueHanlde, &num, portMAX_DELAY);
         if(retQueueReceive == pdFALSE) {
             perror("error in Message Queue Receive: \n");
             exit(EXIT_FAILURE);
         }
         else if (retQueueReceive == pdTRUE) {
-            printf("Item receive : success\n");
-            printf("Item : %d\n", num);
+            printf("Data receive : success\n");
+            printf("Task-5 received : data : %d\n", num);
+            vTaskDelay(pdMS_TO_TICKS(2000));
         }
     }
 
@@ -155,6 +158,14 @@ void app_main()
     BaseType_t task1Return, task2Return, task3Return, task4Return, task5Return;
 
     printf("Inside %s() function:\n", __FUNCTION__);
+
+    // To create Message Queue
+    queueHanlde = xQueueCreate(QueueLength,ItemSize);
+    if(queueHanlde == NULL) {
+        perror("error in Message Queue : ");
+        exit(EXIT_FAILURE);
+    }
+    printf("Message Queue : Created\n");
 
     /**xTaskCreate(Pointer to the task entry function,
      *              A descriptive name for the task,
@@ -194,13 +205,5 @@ void app_main()
         exit(EXIT_FAILURE);
     }
     printf("Task5 : created\n");
-
-    // To create Message Queue
-    queueHanlde = xQueueCreate(QueueLength,ItemSize);
-    if(queueHanlde == NULL) {
-        perror("error in Message Queue : ");
-        exit(EXIT_FAILURE);
-    }
-    printf("Message Queue : Created\n");
 
 }
