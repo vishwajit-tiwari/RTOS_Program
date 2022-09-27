@@ -114,7 +114,7 @@ void Task3(void * parameter)
         perror("error in timer creation ");
         exit(EXIT_FAILURE);
     }
-    printf("Timer started......");
+    printf("Timer started......\n");
     
     //Start Timer
     xTimerStart(retTimerCreate,0);
